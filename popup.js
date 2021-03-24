@@ -1,5 +1,5 @@
 chrome.storage.sync.get('links', function(response) {
-  if(response.links.length > 0) {
+  if(response.links) {
     document.getElementById('data').value = JSON.stringify(response.links, null, 2);
   }
 });
