@@ -54,6 +54,7 @@ $('.add-link').on('click', () => {
 $('.add-link-back').on('click', () => {
   $('body').removeClass('no-scroll');
   $('.add-link-section').hide();
+  $('#addLinkCoursesSelect').prop('selectedIndex', 0).val();
 });
 $('#addLinkCoursesSelect').on('change', (event) => {
   $('#selectedCourseId').data('course-id', event.target.value);
@@ -65,6 +66,7 @@ $('#submitAddLink').on('click', () => {
   var addLinkCourseLink = $('#addLinkCourseLink').val(),
       addLinkLaboratoryLink = $('#addLinkLaboratoryLink').val(),
       addLinkProjectLink = $('#addLinkProjectLink').val();
+      $('#addLinkCoursesSelect').prop('selectedIndex', 0).val();
 
   if(addLinkCourseLink.length > 0 || addLinkLaboratoryLink.length > 0 || addLinkProjectLink.length > 0) {
     var linksToSave = [];
