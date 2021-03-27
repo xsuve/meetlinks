@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery-3.6.0.min.js"></script>
   </head>
   <body>
+    <div class="add-link">+</div>
+    <div id="boxes">
+    </div>
 
-    <textarea id="data"></textarea>
-    <button type="button" id="update">Update</button>
+    <!-- Add link -->
+    <div class="section add-link-section">
+      <div class="section-back add-link-back">< Back</div>
+      <select id="addLinkCoursesSelect">
+        <option value="" selected disabled>Select course</option>
+      </select>
+      <span id="selectedCourseId" data-course-id=""></span>
+      <div id="afterCourseSelected">
+        <input type="text" id="addLinkCourseLink" placeholder="Course link">
+        <input type="text" id="addLinkLaboratoryLink" placeholder="Laboratory link">
+        <input type="text" id="addLinkProjectLink" placeholder="Project link">
+        <button id="submitAddLink" type="button">Add link</button>
+      </div>
+    </div>
 
-    <script src="popup.js"></script>
+    <script src="js/popup.js"></script>
   </body>
 </html>

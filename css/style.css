@@ -1,0 +1,152 @@
+/* General */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #222;
+  width: 320px;
+  min-height: 220px;
+}
+body.no-scroll {
+  overflow: hidden;
+}
+input, select {
+  border-radius: 0px;
+  border: 0px;
+  background-color: #333;
+  padding: 10px;
+  color: #fff;
+  width: 100%;
+  display: block;
+  outline: 0;
+}
+input {
+  width: calc(100% - 20px);
+}
+button {
+  padding: 10px;
+  width: 100%;
+  background-color: #001eff;
+  color: #fff;
+  font-weight: 500;
+  border: 0px;
+  border-radius: 0px;
+  margin-top: 10px;
+  outline: 0;
+}
+
+/* Boxes */
+#boxes {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+.add-link {
+  border: 2px dashed #666;
+  font-weight: 300;
+  background-color: transparent;
+  color: #666;
+  padding: 10px 10px 7px 10px;
+  font-size: 26px;
+  line-height: 26px;
+  text-align: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+#boxes .box {
+  background-color: #333;
+  padding: 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  position: relative;
+}
+#boxes .box .box-delete {
+  position: absolute;
+  background-color: #444;
+  width: 40px;
+  height: 100%;
+  text-align: center;
+  color: #e74c3c;
+  font-size: 12px;
+  line-height: 12px;
+  right: -40px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 9990;
+  transition: ease all 0.2s;
+}
+#boxes .box .box-delete span {
+  position: relative;
+  transform: translateY(-50%);
+  top: 50%;
+  display: block;
+}
+#boxes .box .box-title {
+  color: #fff;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 59%;
+}
+#boxes .box .box-links {
+  display: inline-block;
+  vertical-align: middle;
+  width: 39%;
+  text-align: right;
+}
+#boxes .box .box-links div {
+  display: inline-block;
+  vertical-align: bottom;
+  color: #fff;
+  background-color: #001eff;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 11px;
+  margin-left: 10px;
+}
+#boxes .box .box-links div span {
+  position: relative;
+  display: block;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Sections */
+.add-link-section {
+  display: none;
+}
+.section {
+  position: fixed;
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: #222;
+  z-index: 9990;
+  padding: 15px;
+  overflow-y: scroll;
+}
+.section .section-back {
+  display: inline-block;
+  color: #fff;
+  font-size: 13px;
+  line-height: 13px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+#selectedCourseId {
+  display: block;
+  font-size: 12px;
+  line-height: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: #666;
+}
+.add-link-section input {
+  margin-top: 10px;
+}

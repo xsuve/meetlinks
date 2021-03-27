@@ -1,5 +1,5 @@
 `2021 Series`
-# MeetLinks - Add Google Meet Links to each Google Classroom box.
+# MeetLinks - Add Google Meet Links to each Google Classroom box
 MeetLinks is a Google Chrome Extension which will render Google Meet links for each classroom you joined on Google Classroom. Links may differ from course, project or laboratory links. I developed this one to solve my own problem with finding each Google Meet link for each course or laboratory.
 
 ### Usage
