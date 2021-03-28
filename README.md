@@ -4,6 +4,13 @@ MeetLinks is a Google Chrome Extension which will render Google Meet links for e
 
 ### Usage
 1. Download / Clone the project folder
+2. Go to Chrome > Extensions
+3. Enable Developer Mode
+4. Load Unpacked Extension and choose the project folder
+
+1. Open Google Classroom to sync your rooms for the first time
+2. Open the MeetLinks extension from the extensions tab
+3. Begin adding links
 
 ### Development
 * HTML5

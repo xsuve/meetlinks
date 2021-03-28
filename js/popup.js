@@ -45,6 +45,10 @@ $('.add-link').on('click', () => {
 
   chrome.storage.sync.get('rooms', (response) => {
     if(response.rooms) {
+      $('#addLinkCoursesSelect').empty();
+      $('#addLinkCoursesSelect').append(`<option value="" selected disabled>Select course</option>`);
+      $('#addLinkCoursesSelect').prop('selectedIndex', 0).val();
+
       for(var i = 0; i < response.rooms.length; i++) {
         $('#addLinkCoursesSelect').append(`<option value="${response.rooms[i].id}" data-course-title="${response.rooms[i].title}">${response.rooms[i].title}</option>`);
       }

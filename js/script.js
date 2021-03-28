@@ -1,8 +1,7 @@
 // Globals
 var roomClass = 'gHz6xd'
     roomTitleClass = 'csjh4b',
-    roomBtnsClass = 'SZ0kZe',
-    waitSeconds = 3;
+    roomBtnsClass = 'SZ0kZe';
 
 // Get Rooms
 const getRooms = () => {
@@ -69,18 +68,32 @@ const renderLinks = () => {
   });
 }
 
+// Check Rooms
+const checkRooms = (callback) => {
+  console.log('Loading classroom.');
+  var interval = setInterval(() => {
+    var rooms = document.getElementsByClassName(roomClass);
+    if(rooms.length > 0) {
+      clearInterval(interval);
+      callback();
+    }
+  }, 100);
+}
+
 //
 const checkForDOM = () => {
   if(document.body && document.head) {
-    chrome.storage.sync.get('links', (response) => {
-      if(response.links) {
-        setTimeout(() => {
-          saveRooms();
+    checkRooms(() => {
+      console.log('Classroom loaded.');
+      saveRooms();
+
+      chrome.storage.sync.get('links', (response) => {
+        if(response.links) {
           renderLinks();
-        }, waitSeconds * 1000);
-      } else {
-        console.log('No links provided.');
-      }
+        } else {
+          console.log('No links provided.');
+        }
+      });
     });
   } else {
     requestIdleCallback(checkForDOM);
