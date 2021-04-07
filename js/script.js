@@ -80,10 +80,29 @@ const checkRooms = (callback) => {
   }, 100);
 }
 
+
+// Dark mode
+const darkMode = () => {
+  var darkColor = '#121212',
+      lightColor = '#1e1e1e';
+
+  $('.joJglb').css('background-color', lightColor);
+  $('.joJglb').css('border-color', '#333');
+  $('.IqJTee').css('color', '#fff');
+  $('.GmuOkf').css('color', '#fff');
+  $('body').css('background-color', darkColor);
+  $('.TQYOZc').css('background-color', lightColor);
+  $('.' + roomClass).css('border-color', darkColor);
+  $('.' + roomBtnsClass).css('background-color', lightColor);
+  $('.' + roomBtnsClass).css('border-color', '#333');
+  $('.NMm5M').css('color', '#fff');
+}
+
 //
 const checkForDOM = () => {
   if(document.body && document.head) {
     checkRooms(() => {
+      //darkMode();
       console.log('Classroom loaded.');
       saveRooms();
 

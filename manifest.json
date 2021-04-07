@@ -1,5 +1,6 @@
 {
   "name": "MeetLinks",
+  "author": "xsuve",
   "description": "Manage your Google Meet links.",
   "version": "1.0",
   "manifest_version": 3,
