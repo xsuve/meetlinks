@@ -18,7 +18,6 @@ class ClassPage extends Component {
 
     this.state = {
       classId: null,
-      linksNr: 1,
       alert: {
         display: false,
         message: ''
@@ -27,28 +26,38 @@ class ClassPage extends Component {
         title: '',
         teacher: '',
         image: '',
-        link: []
+        links: []
       }
     };
 
     this.newLinkInput = this.newLinkInput.bind(this);
   }
 
+  fetchClass(id) {
+    this.setState({
+      classId: id,
+      data: LocalStorageService.getClass(parseInt(id))
+    });
+  }
+
   componentDidMount() {
     if(this.props.params.classId) {
-      this.setState({
-        classId: this.props.params.classId,
-        data: LocalStorageService.getClass(parseInt(this.props.params.classId))
-      });
+      this.fetchClass(this.props.params.classId);
     }
   }
 
   newLinkInput() {
-    this.setState({ linksNr: this.state.linksNr + 1 });
+    this.setState({
+      data: {
+        ...this.state.data,
+        links: [...this.state.data.links, { index: '', link: '' }]
+      }
+    });
   }
 
   updateLinkInput(data) {
-    LocalStorageService.updateLinks(this.state.classId, data);
+    LocalStorageService.updateLink(this.state.classId, data);
+    this.fetchClass(this.state.classId);
   }
 
   // Render
@@ -67,9 +76,16 @@ class ClassPage extends Component {
             <h6 className="text-white text-base font-light mb-2">{this.state.data.title}</h6>
             <p className="text-gray-400 text-sm font-light">{this.state.data.teacher}</p>
             <div className="mt-7">
-              { Array.from({ length: this.state.linksNr }, (element, index) => (
-                <LinkInput key={index} data={this.state.data} updateLinkInput={(data) => this.updateLinkInput(data)} />
-              ))}
+              { this.state.data.links.length > 0
+                ?
+                (
+                  this.state.data.links.map((link, index) => (
+                    <LinkInput key={index} index={link.index} link={link.link} updateLinkInput={(data) => this.updateLinkInput(data)} />
+                  ))
+                )
+                :
+                <LinkInput index="" link="" updateLinkInput={(data) => this.updateLinkInput(data)} />
+              }
               <div className="border border-gray-700 w-10 h-10 flex items-center justify-center cursor-pointer" onClick={this.newLinkInput}>
                 <span className="material-icons-outlined text-base text-gray-400">add</span>
               </div>

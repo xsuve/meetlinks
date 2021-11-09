@@ -25,7 +25,7 @@ class Home extends Component {
           links: [
             {
               index: 'C',
-              link: ''
+              link: 'https://meet.google.com/'
             }
           ]
         },
@@ -41,11 +41,13 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    //LocalStorageService.initClasses(this.state.classes);
-
-    this.setState({
-      classes: LocalStorageService.getClasses()
-    });
+    if(LocalStorageService.getClasses()) {
+      this.setState({
+        classes: LocalStorageService.getClasses()
+      });
+    } else {
+      LocalStorageService.initClasses(this.state.classes);
+    }
   }
 
   // Render

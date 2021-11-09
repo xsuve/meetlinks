@@ -32,32 +32,38 @@ class LocalStorageService {
     return classWithId.links;
   }
 
-  updateLinks(classId, data) {
+  updateLink(classId, data) {
     const _classes = this.getClasses();
     const classes = [];
+    const links = [];
 
     _classes.map((_class) => {
       if(_class.classId === parseInt(classId)) {
         if(_class.links.length > 0) {
           _class.links.map((link) => {
             if(link.index === data.index) {
-              link.link = data.link;
+              links.push({
+                index: link.index,
+                link: link.link
+              });
             } else {
-              _class.links.push({
+              links.push({
                 index: data.index,
                 link: data.link
               });
             }
           });
         } else {
-          _class.links.push({
+          links.push({
             index: data.index,
             link: data.link
           });
         }
 
-        classes.push(_class);
+        _class.links = links;
       }
+
+      classes.push(_class);
     });
 
     const classesJSON = JSON.stringify(classes);
